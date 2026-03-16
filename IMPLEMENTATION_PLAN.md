@@ -6,11 +6,12 @@
 
 ## Executive Summary
 
-**Current State**: PHASE 1 COMPLETE - Godot project initialized with core scenes and scripts.
+**Current State**: PHASE 1 & 2 IN PROGRESS - Godot project initialized with core scenes, all 8 peg types, and physics systems.
 - `res://` directory structure created
 - project.godot file exists with all AutoLoads configured
-- Core scenes: Board.tscn, Ball.tscn, BasePeg.tscn, MainMenu.tscn
+- Core scenes: Board.tscn, Ball.tscn, BasePeg.tscn, 8 peg type scenes, MainMenu.tscn
 - AutoLoads: EventBus, RunState, GhostBoardManager, SynergyChecker, AudioManager, MutationEngine
+- PhysicsDebug overlay for development
 
 **Gap Analysis**:
 | Spec Section | Status | Priority |
