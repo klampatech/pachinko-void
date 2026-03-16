@@ -1,0 +1,66 @@
+{
+  "stone": {
+    "restitution": 0.6,
+    "friction": 0.1,
+    "tags": ["foundation"],
+    "special": null,
+    "display_name": "Stone Peg",
+    "description": "Baseline deflection. Adds +1 Gold on hit."
+  },
+  "bone": {
+    "restitution": 0.5,
+    "friction": 0.05,
+    "tags": ["death"],
+    "special": null,
+    "display_name": "Bone Peg",
+    "description": "+2 damage to current enemy on hit."
+  },
+  "fungal": {
+    "restitution": 0.4,
+    "friction": 0.45,
+    "tags": ["growth", "death"],
+    "special": "spawns_sprout",
+    "display_name": "Fungal Peg",
+    "description": "Sticky. Grows over time. Adds +1 Stability on contact."
+  },
+  "ember": {
+    "restitution": 0.9,
+    "friction": 0.05,
+    "tags": ["fire"],
+    "special": "ignites_adjacent",
+    "display_name": "Ember Peg",
+    "description": "Hyper-elastic. Ignites adjacent pegs on hit."
+  },
+  "eye": {
+    "restitution": 0.6,
+    "friction": 0.1,
+    "tags": ["void"],
+    "special": "reveals_pockets",
+    "display_name": "Eye Peg",
+    "description": "Watches the ball. Grants prophetic vision of pockets."
+  },
+  "heart": {
+    "restitution": 0.7,
+    "friction": 0.15,
+    "tags": ["blood"],
+    "special": "heals_stability",
+    "display_name": "Heart Peg",
+    "description": "Soft bounce. Heals 5 Stability on contact."
+  },
+  "oracle": {
+    "restitution": 0.6,
+    "friction": 0.1,
+    "tags": ["all"],
+    "special": "splits_ball",
+    "display_name": "Oracle Peg",
+    "description": "Splits ball into 3 on contact. Legendary."
+  },
+  "void_rift": {
+    "restitution": 0.0,
+    "friction": 0.0,
+    "tags": ["void"],
+    "special": "teleports_ball",
+    "display_name": "Void Rift Peg",
+    "description": "Ball teleports to best pocket. Legendary."
+  }
+}

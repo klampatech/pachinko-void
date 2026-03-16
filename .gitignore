@@ -1,0 +1,11 @@
+.godot/
+*.import
+*.ogg
+*.wav
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.svg
+.DS_Store
+user://

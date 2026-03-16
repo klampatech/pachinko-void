@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2k9xr3p5v8ym"]
+
+[ext_resource type="Script" path="res://scripts/game/Ball.gd" id="1_ball"]
+[ext_resource type="PhysicsMaterial" uid="uid://ball_physics" path="res://assets/ball_physics.tres" id="2_physics"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ball"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_collision"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_visual"]
+radius = 12.0
+
+[node name="Ball" type="RigidBody2D"]
+mass = 1.0
+gravity_scale = 1.4
+linear_damp = 0.05
+continuous_cd = 1
+physics_material_override = ExtResource("2_physics")
+script = ExtResource("1_ball")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_collision")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Circle" type="Sprite2D" parent="Visuals"]
+
+[node name="CircleShape" type="Polygon2D" parent="Visuals"]
+color = Color(0.9, 0.9, 1, 1)
+polygon = PackedVector2Array(-12, 0, -8.784, 8.208, 0, 12, 8.784, 8.208, 12, 0, 8.784, -8.208, 0, -12, -8.784, -8.208)
+
+[node name="Trail" type="Line2D" parent="."]
+width = 4.0
+default_color = Color(0.7, 0.8, 1, 0.5)

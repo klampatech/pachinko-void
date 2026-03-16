@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://base_peg"]
+
+[ext_resource type="Script" path="res://scripts/game/pegs/BasePeg.gd" id="1_base_peg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_peg"]
+radius = 15.0
+
+[node name="BasePeg" type="StaticBody2D"]
+script = ExtResource("1_base_peg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_peg")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Circle" type="Polygon2D" parent="Visuals"]
+color = Color(0.5, 0.5, 0.55, 1)
+polygon = PackedVector2Array(-15, 0, -11, -10.3, 0, -15, 11, -10.3, 15, 0, 11, 10.3, 0, 15, -11, 10.3)

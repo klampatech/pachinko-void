@@ -1,0 +1,171 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5j8xw9qm4n2d"]
+
+[ext_resource type="Script" path="res://scripts/game/Board.gd" id="1_board"]
+[ext_resource type="Script" path="res://scripts/game/BallSpawner.gd" id="2_ball_spawner"]
+
+[node name="Board" type="Node2D"]
+script = ExtResource("1_board")
+
+# Board dimensions: 600x900 logical space, centered in 1080x1920 viewport
+# Position at (240, 0) to center horizontally
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 600.0
+offset_bottom = 900.0
+color = Color(0.0392157, 0.0392157, 0.101961, 1)
+
+# Physics boundaries - walls
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="LeftWall" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(-10, 0, 0, 0, 0, 900, -10, 900)
+
+[node name="RightWall" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(600, 0, 610, 0, 610, 900, 600, 900)
+
+[node name="TopWall" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(0, -10, 600, -10, 600, 0, 0, 0)
+
+[node name="BottomBarrier" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(0, 880, 600, 880, 600, 910, 0, 910)
+
+# Pockets at the bottom - scoring zones
+[node name="Pockets" type="Node2D" parent="."]
+
+[node name="Pocket_Damage_1" type="Area2D" parent="Pockets"]
+position = Vector2(75, 880)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/Pocket_Damage_1"]
+shape = CircleShape2D.new()
+radius = 30.0
+
+[node name="Label" type="Label" parent="Pockets/Pocket_Damage_1"]
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+text = "DMG"
+
+[node name="Pocket_Damage_2" type="Area2D" parent="Pockets"]
+position = Vector2(225, 880)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/Pocket_Damage_2"]
+shape = CircleShape2D.new()
+radius = 30.0
+
+[node name="Label" type="Label" parent="Pockets/Pocket_Damage_2"]
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+text = "DMG"
+
+[node name="Pocket_Heal_1" type="Area2D" parent="Pockets"]
+position = Vector2(375, 880)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/Pocket_Heal_1"]
+shape = CircleShape2D.new()
+radius = 30.0
+
+[node name="Label" type="Label" parent="Pockets/Pocket_Heal_1"]
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+text = "HEAL"
+
+[node name="Pocket_Heal_2" type="Area2D" parent="Pockets"]
+position = Vector2(525, 880)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/Pocket_Heal_2"]
+shape = CircleShape2D.new()
+radius = 30.0
+
+[node name="Label" type="Label" parent="Pockets/Pocket_Heal_2"]
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+text = "HEAL"
+
+[node name="Pocket_Gold_1" type="Area2D" parent="Pockets"]
+position = Vector2(150, 880)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/Pocket_Gold_1"]
+shape = CircleShape2D.new()
+radius = 30.0
+
+[node name="Label" type="Label" parent="Pockets/Pocket_Gold_1"]
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+text = "GOLD"
+
+[node name="Pocket_Gold_2" type="Area2D" parent="Pockets"]
+position = Vector2(450, 880)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/Pocket_Gold_2"]
+shape = CircleShape2D.new()
+radius = 30.0
+
+[node name="Label" type="Label" parent="Pockets/Pocket_Gold_2"]
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+text = "GOLD"
+
+[node name="Pocket_Void" type="Area2D" parent="Pockets"]
+position = Vector2(300, 880)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets/Pocket_Void"]
+shape = CircleShape2D.new()
+radius = 30.0
+
+[node name="Label" type="Label" parent="Pockets/Pocket_Void"]
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+text = "VOID"
+
+# Peg container
+[node name="PegContainer" type="Node2D" parent="."]
+
+# Ball spawner
+[node name="BallSpawner" type="Node2D" parent="."]
+position = Vector2(300, 50)
+script = ExtResource("2_ball_spawner")
+
+# UI overlay
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="StabilityBar" type="ProgressBar" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 220.0
+offset_bottom = 50.0
+max_value = 100.0
+value = 100.0
+
+[node name="GoldLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 120.0
+offset_bottom = 90.0
+text = "Gold: 0"
+
+[node name="BallCountLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 100.0
+offset_right = 120.0
+offset_bottom = 130.0
+text = "Balls: 1"
+
+[node name="PhaseLabel" type="Label" parent="UI"]
+offset_left = 240.0
+offset_top = 20.0
+offset_right = 500.0
+offset_bottom = 50.0
+text = "Ready to Drop"
